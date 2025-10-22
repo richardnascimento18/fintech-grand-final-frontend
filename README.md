@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💸 Projeto Fintech - Plataforma de Gestão Financeira
 
-## Getting Started
+Este repositório contém o **frontend** do projeto desenvolvido para o curso de **Análise e Desenvolvimento de Sistemas na FIAP**.  
+O objetivo da aplicação é oferecer uma **plataforma moderna e intuitiva para gerenciamento financeiro pessoal**, permitindo que usuários controlem receitas, despesas e metas de forma simples e segura.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Tecnologias Utilizadas
+
+O projeto foi desenvolvido utilizando **Next.js** como base do frontend, junto a um ecossistema moderno de ferramentas web:
+
+- **Next.js** – Framework React com suporte a SSR e rotas otimizadas  
+- **TypeScript** – Tipagem estática para maior confiabilidade do código  
+- **Tailwind CSS** – Estilização rápida e responsiva  
+- **Axios / Fetch API** – Comunicação com o backend  
+- **React Hook Form / Zod** – Validação e gerenciamento de formulários  
+
+---
+
+## 🧠 Sobre o Projeto
+
+A proposta é criar uma **plataforma de controle financeiro pessoal**, onde o usuário pode:
+
+- Cadastrar e visualizar **transações** (entradas e saídas)  
+- Acompanhar **saldo total e estatísticas**  
+- Gerenciar **categorias e metas de economia**  
+- Obter uma visão clara de sua **saúde financeira**  
+
+O foco é proporcionar uma **experiência fluida e responsiva**, aliando design minimalista e performance.
+
+---
+
+## 📂 Estrutura do Repositório
+
+```
+/src
+ ├── app/              # Páginas e rotas da aplicação (Next.js)
+ ├── components/       # Componentes reutilizáveis de UI
+ ├── hooks/            # Hooks customizados
+ ├── lib/              # Configurações e utilitários globais
+ ├── services/         # Comunicação com o backend
+ └── styles/           # Estilos globais
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Como Executar Localmente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/fintech-frontend.git
+   ```
 
-## Learn More
+2. **Instale as dependências**
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Inicie o servidor de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Acesse no navegador: [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧩 Integração com o Backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+O frontend se comunica com o backend em Java + Spring da aplicação (API RESTful), responsável por autenticação, persistência de dados e regras de negócio.  
+As URLs e variáveis de ambiente estão definidas em `.env.local`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 👥 Autores
+
+Projeto desenvolvido para o curso de **Análise e Desenvolvimento de Sistemas – FIAP**, com foco em **arquitetura de software** e boas práticas de desenvolvimento web moderno.
+
+---
+
+## 📄 Licença
+
+Este projeto é de uso acadêmico e pode ser utilizado como referência para estudos e aprimoramento técnico.
+
+---
+**FIAP | Análise e Desenvolvimento de Sistemas**  
+Desenvolvido com ❤️ e clean code.
