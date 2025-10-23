@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, ADLaM_Display } from "next/font/google";
 import "./globals.css";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,7 +23,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${adlam.variable}`}>
-      <body className="bg-[#222222] font-sans">{children}</body>
+      <body className="bg-[#222222] font-sans">
+        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable={false} pauseOnHover theme="dark" transition={Bounce} />
+        {children}
+      </body>
     </html>
   );
 }
