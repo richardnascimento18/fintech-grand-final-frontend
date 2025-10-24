@@ -14,12 +14,12 @@ export const FormField = forwardRef<HTMLInputElement, FormFieldProps>(
       </label>
       <input
         {...props}
-        ref={ref} // attach RHF ref here
-        className={`w-full h-16 bg-primary-50 rounded-sm font-poppins text-[1.125rem] px-[.5rem] font-light outline-none ${
+        ref={ref}
+        className={`w-full h-16 bg-primary-50 rounded-sm font-poppins text-[1.125rem] px-2 font-light outline-none ${
           error ? "border border-red-500" : ""
         } ${props.className ?? ""}`}
       />
-      {error && <span className="text-red-500 text-sm">{error.message}</span>}
+      {error && <span className="text-red-500 text-sm max-w-full">{error.message}</span>}
     </div>
   )
 );
