@@ -15,10 +15,7 @@ export function useAppForm<T extends Record<string, unknown>>(schema: any) {
       try {
         await onSubmit(data);
       } catch (error) {
-        notify(
-          error instanceof Error ? error.message : "Erro ao enviar o formulário.",
-          "error"
-        );
+        notify(error instanceof Error ? error.message : "Erro ao enviar o formulário.", "error");
       }
     });
 
