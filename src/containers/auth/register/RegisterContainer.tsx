@@ -31,7 +31,7 @@ export function RegisterContainer() {
                 <FormField label="Confirme a Senha:" id="confirmPassword" type="password" {...register("confirmPassword")} error={errors.confirmPassword} />
 
                 <DescriptionLink description="Já possui uma conta? Faça login" href="/login" linkText="por aqui." />
-                <MainButton buttonOptions={{ type: "submit", disabled: isDisabled }} text={isSubmitting ? "Cadastrando..." : "Cadastrar"} />
+                <MainButton type="submit" disabled={isDisabled} text={isSubmitting ? "Cadastrando..." : "Cadastrar"} />
             </form>
         </div>
     );

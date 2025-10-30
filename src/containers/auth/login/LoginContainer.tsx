@@ -31,7 +31,7 @@ export function LoginContainer() {
                 <FormField label="Senha:" id="password" type="password" {...register("password")} error={errors.password} />
 
                 <DescriptionLink description="Não possui uma conta?" href="/register" linkText="Registre-se" />
-                <MainButton buttonOptions={{ type: "submit", disabled: isDisabled }} text={isSubmitting ? "Entrando..." : "Entrar"} />
+                <MainButton type="submit" disabled={isDisabled}  text={isSubmitting ? "Entrando..." : "Entrar"} />
             </form>
         </div>
     );

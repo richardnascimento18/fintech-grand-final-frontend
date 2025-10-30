@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export default function proxy(req: NextRequest) {
     const { pathname } = req.nextUrl;
 
-    const publicRoutes = ['/login', '/register', '/dashboard', '/public'];
+    const publicRoutes = ['/','/login', '/register', '/dashboard', '/public'];
     const isStaticAsset = pathname.startsWith('/_next/') || pathname.startsWith('/static/') || pathname.startsWith('/favicon') || pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|txt|json)$/);
 
     const isProtected = !publicRoutes.includes(pathname);
