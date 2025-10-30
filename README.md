@@ -12,8 +12,8 @@ O projeto foi desenvolvido utilizando **Next.js** como base do frontend, junto a
 - **Next.js** – Framework React com suporte a SSR e rotas otimizadas  
 - **TypeScript** – Tipagem estática para maior confiabilidade do código  
 - **Tailwind CSS** – Estilização rápida e responsiva  
-- **Axios / Fetch API** – Comunicação com o backend  
-- **React Hook Form / Zod** – Validação e gerenciamento de formulários  
+- **Axios** – Comunicação com o backend  
+- **React Hook Form + Zod** – Validação e gerenciamento de formulários  
 
 ---
 
@@ -22,8 +22,7 @@ O projeto foi desenvolvido utilizando **Next.js** como base do frontend, junto a
 A proposta é criar uma **plataforma de controle financeiro pessoal**, onde o usuário pode:
 
 - Cadastrar e visualizar **transações** (entradas e saídas)  
-- Acompanhar **saldo total e estatísticas**  
-- Gerenciar **categorias e metas de economia**  
+- Gerenciar **entradas e saídas**  
 - Obter uma visão clara de sua **saúde financeira**  
 
 O foco é proporcionar uma **experiência fluida e responsiva**, aliando design minimalista e performance.
