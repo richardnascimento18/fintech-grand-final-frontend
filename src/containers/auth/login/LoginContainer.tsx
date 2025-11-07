@@ -7,13 +7,30 @@ import { DescriptionLink } from "@/components/Link/";
 import { Logo, MainTitle, Subtitle } from "@/components/Title/";
 
 // Utils
-import { loginSchema, LoginFormFields, useNotification, useAppForm } from "@/utils/";
+import { loginSchema, LoginFormFields, useNotification, useAppForm, fetchHelper } from "@/utils/";
+import { useRouter } from "next/navigation";
+import { useCookies } from "react-cookie";
 
 export function LoginContainer() {
     const { register, handleSubmitWithNotify, formState: { errors, isSubmitting, isValid }, } = useAppForm<LoginFormFields>(loginSchema);
+    const router = useRouter();
+    const [cookies] = useCookies(["token"]);
     
     const onSubmit = async (data: LoginFormFields) => {
-        console.log(data);
+        try {
+            const response = await fetchHelper(`/user/${data.email}/${data.password}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+            });
+
+            if (response.status !== 201) throw new Error("Erro ao logar. Tente novamente.");
+
+            notify("Login realizado com sucesso!", "success");
+            router.push("/dashboard");
+        } catch (error) {
+            notify("Erro ao logar. Tente novamente.", "error");
+        }
     };
     
     const { notify } = useNotification();

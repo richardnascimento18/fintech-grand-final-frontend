@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins, ADLaM_Display } from "next/font/google";
 import "./globals.css";
-import { Bounce, ToastContainer } from "react-toastify";
+import ClientProviders from "./ClientProviders";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["100","200","300","400","500","600","700","800","900"],
   variable: "--font-poppins",
 });
 
@@ -20,12 +20,11 @@ export const metadata: Metadata = {
   description: "Frontend for my FIAP fintech project",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${adlam.variable}`}>
       <body className="bg-[#222222] font-sans">
-        <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable={false} pauseOnHover theme="dark" transition={Bounce} />
-        {children}
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

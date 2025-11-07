@@ -7,13 +7,33 @@ import { DescriptionLink } from "@/components/Link/";
 import { Logo, MainTitle, Subtitle } from "@/components/Title/";
 
 // Utils
-import { registerSchema, RegisterFormFields, useAppForm } from "@/utils/";
+import { registerSchema, RegisterFormFields, useAppForm, fetchHelper, useNotification } from "@/utils/";
+import { useRouter } from "next/navigation";
 
 export function RegisterContainer() {
     const { register, handleSubmitWithNotify, formState: { errors, isSubmitting, isValid }, } = useAppForm<RegisterFormFields>(registerSchema);
+    const router = useRouter();
+    const { notify } = useNotification();
 
     const onSubmit = async (data: RegisterFormFields) => {
-        console.log(data);
+        try {
+            const requestData = await fetchHelper("/user", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+    
+            notify("Cadastro realizado com sucesso!", "success");
+    
+            if(requestData.status != 201) throw new Error("Erro ao cadastrar usuário. Tente novamente.");
+            
+                router.push("/login");
+        } catch(error) {
+            notify("Erro ao cadastrar usuário. Tente novamente.", "error");
+            return;
+        }
     };
     
     const isDisabled = isSubmitting || errors.email || errors.password || errors.confirmPassword || !isValid ? true : false;
