@@ -9,11 +9,13 @@ import { Logo, MainTitle, Subtitle } from "@/components/Title/";
 // Utils
 import { registerSchema, RegisterFormFields, useAppForm, fetchHelper, useNotification } from "@/utils/";
 import { useRouter } from "next/navigation";
+import { useCookies } from "react-cookie";
 
 export function RegisterContainer() {
     const { register, handleSubmitWithNotify, formState: { errors, isSubmitting, isValid }, } = useAppForm<RegisterFormFields>(registerSchema);
     const router = useRouter();
     const { notify } = useNotification();
+    const [cookies] = useCookies(["token"]);
 
     const onSubmit = async (data: RegisterFormFields) => {
         try {
@@ -35,6 +37,10 @@ export function RegisterContainer() {
             return;
         }
     };
+
+    if(cookies.token) {
+        router.push("/dashboard");
+    }
     
     const isDisabled = isSubmitting || errors.email || errors.password || errors.confirmPassword || !isValid ? true : false;
 

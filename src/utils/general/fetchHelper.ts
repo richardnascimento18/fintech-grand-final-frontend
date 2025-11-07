@@ -5,11 +5,9 @@ export async function fetchHelper(endpoint: string, options?: RequestInit) {
     const response = await fetch(url, options);
 
     if (!response.ok) {
-        // Optional: throw an error with the response status and body
         const errorBody = await response.text();
         throw new Error(`Request failed with status ${response.status}: ${errorBody}`);
     }
 
-    // Automatically parse JSON
     return response.json();
 }

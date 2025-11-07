@@ -9,6 +9,7 @@ import { Logo, MainTitle, Subtitle } from "@/components/Title/";
 // Utils
 import { loginSchema, LoginFormFields, useNotification, useAppForm, fetchHelper } from "@/utils/";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 
 export function LoginContainer() {
@@ -32,6 +33,12 @@ export function LoginContainer() {
             notify("Erro ao logar. Tente novamente.", "error");
         }
     };
+
+    useEffect(() => {
+        if(cookies.token) {
+            router.push("/dashboard");
+        }
+    }, []);
     
     const { notify } = useNotification();
     const isDisabled = isSubmitting || errors.email || errors.password || !isValid ? true : false;
